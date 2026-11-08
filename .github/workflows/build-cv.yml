@@ -1,0 +1,35 @@
+name: Build CV
+
+# Rebuilds the PDF whenever cv.tex changes, and commits it back to the repo
+# under the same name, so every existing link to Lnv_Lochancv.pdf stays valid.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cv.tex"
+      - ".github/workflows/build-cv.yml"
+  workflow_dispatch: # lets you trigger a rebuild manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv.tex
+
+      - name: Rename PDF
+        run: mv cv.pdf Lnv_Lochancv.pdf
+
+      - name: Commit updated PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Rebuild CV PDF"
+          file_pattern: Lnv_Lochancv.pdf
