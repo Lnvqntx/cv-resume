@@ -1,0 +1,219 @@
+%-------------------------------------------------------------------------------
+% CV of Lnv Lochan Ch
+% Built automatically to PDF by GitHub Actions (.github/workflows/build-cv.yml).
+% To update: edit this file on GitHub (pencil icon), commit, wait ~1 minute.
+%-------------------------------------------------------------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[margin=0.55in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedright
+\urlstyle{same}
+
+% Section headings: small caps with a rule underneath
+\titleformat{\section}{\vspace{-4pt}\scshape\large}{}{0em}{}[\color{black}\titlerule\vspace{-4pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+% Bullet lists
+\setlist[itemize]{leftmargin=1.2em, label=\textbullet, itemsep=1pt, topsep=1pt, parsep=0pt}
+
+%------------------------------- Helper macros ---------------------------------
+% \entry{Title}{Right-aligned text}{Second line (tools / role)}{Second line right}
+\newcommand{\entry}[4]{%
+  \vspace{2pt}
+  \begin{tabularx}{\linewidth}{@{}X@{\hspace{6pt}}r@{}}
+    \textbf{#1} & #2 \\
+    \if\relax\detokenize{#3}\relax\else \textit{\small #3} & \textit{\small #4} \\ \fi
+  \end{tabularx}\vspace{-3pt}
+}
+\newcommand{\metric}[1]{\textbf{#1}}
+
+%===============================================================================
+\begin{document}
+
+%------------------------------------ Header -----------------------------------
+\begin{center}
+  {\Huge \scshape Lnv Lochan Ch} \\[3pt]
+  \small
+  \href{mailto:lnvlochanchaparala@gmail.com}{lnvlochanchaparala@gmail.com} $|$
+  +91-9983355789 $|$
+  \href{https://www.linkedin.com/in/lnv-lochan-ch-7b43ab379}{\underline{LinkedIn}} $|$
+  \href{https://github.com/Lnvqntx}{\underline{GitHub}} $|$
+  \href{https://www.kineticflowai.com/}{\underline{Portfolio}}
+\end{center}
+\vspace{-6pt}
+
+%------------------------------------ Summary ----------------------------------
+\small
+Dual-degree CSE and Data Science student and AI startup co-founder who builds and runs quantitative trading systems.
+Top 6\% (302 of 5,111) in Wunder Fund's HFT order-book prediction competition, 21st in AlphaNova Cycle 4,
+620th globally in IMC Prosperity, 7th of 190 in the APAC Quant Trading Hackathon, and 3rd prize in IIT Madras
+and NIT Rourkela's Pitch Me a Stock equity research competition. Founded my university's first Finance Club.
+\normalsize
+
+%----------------------------------- Education ---------------------------------
+\section{Education}
+\entry{B.S. in Data Science and Applications, Indian Institute of Technology Madras}{2025 -- 2029 $|$ CGPA 7.00/10}{}{}
+\entry{B.Tech, Computer Science and Engineering, C.\,R.\,Rao Advanced Institute of Mathematics, Statistics and Computer Science}{2025 -- 2029 $|$ CGPA 9.75/10}{}{}
+
+%--------------------------- Quant research & competitions ---------------------
+\section{Quantitative Research \& Competitions}
+
+\entry{Wunder Fund Alfa Connectome: HFT Order-Book Prediction, Team Varanasi}{Ongoing: public rank 302 of 5,111}
+      {Python, PyTorch, ONNX}{}
+\begin{itemize}
+  \item Built a stateful GRU that predicts two future-price indicators row by row from a live stream of 112 limit-order-book
+        features on two instruments; \metric{0.687} weighted Pearson on validation against the official baseline's 0.617.
+  \item Met a 1-vCPU, $\sim$90-microsecond-per-row latency budget for 39.4M test rows: int8-quantised ONNX export (score
+        loss under 0.0001) cut inference from 203 to \metric{59 microseconds} per row, so a two-model ensemble runs in about 34
+        of the 60 minutes allowed.
+  \item Treated every change as a controlled experiment: a baseline calibration submission showed the
+        validation-to-leaderboard drop was shared by everyone, and seed noise (0.0013) was measured before any gain
+        was accepted. Climbed from rank 543 to \metric{302} with 6 submissions.
+\end{itemize}
+
+\entry{Pitch Me a Stock, IIT Madras $\times$ NIT Rourkela, Team Red Devils}{Oct 2026: 3rd prize; final 10 of 626}
+      {Equity research, financial modelling, valuation}{}
+\begin{itemize}
+  \item Cleared a finance quiz and a written equity research round to reach the 10-team offline final at IIT Madras from 626
+        participants, then won \metric{3rd prize} presenting to the judging panel.
+  \item Pitched a BUY on Hindustan Aeronautics (NSE: HAL) with an INR 5,520 target (+13.8\%): built FY27--28 earnings
+        forecasts from filings and management guidance, valued at HAL's 5-year median P/E, with bear, base and bull
+        cases ($-$14\%, +14\%, +39\%).
+  \item Framed the thesis around delivery conversion (GE engine supply, aircraft handovers, revenue), checked every
+        claim against the earnings-call transcript and Ministry of Defence releases, and set dated triggers for a downgrade.
+\end{itemize}
+
+\entry{APAC Quant Trading Hackathon (Roostoo), Solo Entry (Prime Execution)}{Live 9--18 Oct 2026: rank 7 of 190}
+      {Python, AWS EC2}{}
+\begin{itemize}
+  \item Built an autonomous spot-trading bot (HMAC-signed REST client, drawdown risk ladder, order planner, holdings
+        reconciled from the exchange) that traded unattended on AWS EC2 for all 10 competition days, covered by 50
+        automated tests including a signature-verifying mock exchange.
+  \item Walk-forward tested 3 signal strategies and a long/short variant on 21 out-of-sample months of Binance data
+        against pre-declared gates (costs, 2$\times$ costs, fold stability, $\pm$30\% parameter stability, deflated Sharpe). None
+        passed; a BTC trend filter that met every pre-set criterion was still not deployed (deflated-Sharpe probability 0.27
+        over 31 configurations). All 19 trials are logged.
+  \item Live result: final equity $-$0.04\% with a deepest drawdown of $-$3.14\%, inside the $-$4\% de-risk level throughout;
+        average slippage +0.28 bps over 35 fills.
+\end{itemize}
+
+\entry{AlphaNova Biweekly Competition, Season 1}{Cycle 4: rank 21 (star signal); Cycle 5 ongoing}
+      {Python, XGBoost}{}
+\begin{itemize}
+  \item Forecast a hidden cross-sectional target on 20 assets, scored by Sharpe after a 5 bp turnover cost. Built 15
+        candidate predictors, a walk-forward harness, an overfitting-gate simulator and automated leakage, determinism
+        and timing checks.
+  \item Submitted a factor-hedged reversal signal (PCA-neutralised, with an XGBoost overlay) that passed the novelty and
+        overfitting gates; reproduced the platform's novelty metric offline (25.5$^\circ$ vs 25.49$^\circ$ on the site). A star marks a
+        prize-eligible signal (correlation of at most 0.5 with every higher-ranked signal).
+  \item Found that turnover decides net Sharpe: slower signals cut costs from 57--87\% to 1.5--3.5\% of gross PnL in local
+        tests.
+  \item Cycle 5: identified the hidden target as roughly a z-scored forward 120-hour return (correlation 0.93) and found two
+        new edges, per-asset trend persistence and market lead/lag. Built a novelty model from 106 simple signals and
+        their pairwise combinations that matched all 10 of the site's novelty verdicts.
+  \item Cycle 5: traced an overfitting-gate failure to slow features that stay smooth under label shuffling; rebuilt the signal
+        so it beat all 100 shuffled retrains in the hardest test months, with predictions unchanged (to 1e-14) under row
+        padding and pickle reload.
+\end{itemize}
+
+\entry{IMC Prosperity 4 Trading Competition}{Global rank 620 after Round 4}
+      {Python, Rust}{}
+\begin{itemize}
+  \item Ran statistical research on the Round 3 products (stationarity and regime tests, GARCH volatility, order-flow
+        imbalance, cointegration) and derived inventory-skewed market making, z-score mean reversion, pairs trading, and
+        Black-Scholes option market making with delta hedging.
+  \item Compared strategies on a Rust-backed Monte Carlo simulator (1,000 sessions in about 56 seconds), judging PnL
+        distribution, stability and profitability rather than a single backtest.
+\end{itemize}
+
+\entry{Susquehanna Predictions Cup 2026}{Rank 365 of 1,403 (12 Oct 2026)}
+      {Python}{}
+\begin{itemize}
+  \item Built an autonomous prediction-market trading system (179 commits) that scans all open election markets, ranks
+        edges by comparing forecast probability with executable ask prices, and places limit orders.
+  \item Added risk controls: portfolio and open-order reconciliation, idempotent submissions, per-order and aggregate
+        exposure caps, and a dry-run rotation analyser for replacing weak positions.
+\end{itemize}
+
+{\footnotesize\textit{Code for the private Varanasi, AlphaNova and Prime Execution repositories is available on request
+(Varanasi after the competition ends, as its rules require).}}
+
+%-------------------------------- Research -------------------------------------
+\section{Research \& Publications}
+\begin{itemize}
+  \item Co-author, ``Does Pretraining Solve Temporal Domain Shift? A Multi-Tier Study of Hand-Crafted, Supervised, and
+        Self-Supervised Representations for Music Emotion Recognition'', with Prof.~G.~Radha Krishna; manuscript under
+        review at ICASSP 2027.
+\end{itemize}
+
+%-------------------------------- Experience -----------------------------------
+\section{Experience}
+
+\entry{Co-Founder, AI Solutions \& Business Development, Kinetic Flow AI}{Oct 2025 -- Present}{}{}
+\begin{itemize}
+  \item Co-founded an AI solutions startup that delivered 4 production-grade client solutions worth over INR 2 lakh; turned
+        client requirements into technical specifications and handled pricing, timelines, client communication and
+        deployments.
+  \item Built multi-portal apps, workflow automations and backend services with Supabase (PostgreSQL), Ollama, Claude
+        and Gemini.
+\end{itemize}
+
+\entry{Founder \& Coordinator, Finance Club, C.\,R.\,Rao AIMSCS}{Jul 2026 -- Present}{}{}
+\begin{itemize}
+  \item Founded the university's first Finance Club, leading vision, recruitment and operations from scratch; organized
+        workshops on financial markets, quantitative finance and trading, and planning university-wide paper trading
+        competitions.
+\end{itemize}
+
+\entry{Student Organizer, GDG on Campus, C.\,R.\,Rao AIMSCS}{2026 -- 2027}{}{}
+\begin{itemize}
+  \item One of three organizers of the university's Google Developer Groups chapter for the 2026--27 tenure.
+\end{itemize}
+
+%------------------------------ Software projects ------------------------------
+\section{Software Projects}
+\begin{itemize}
+  \item \textbf{DeepFake Audio Detection} (Python, PyTorch, Ollama, Node.js): PyTorch deepfake audio detector with
+        GPU-accelerated inference; backend APIs and a Node.js web app with a local Ollama LLM.
+  \item \textbf{GalliBite, HOMYGO, MitraCare} (Supabase, PostgreSQL, Edge Functions, WhatsApp Business): contributed to
+        multi-portal food delivery, caregiver booking and elderly-care platforms; built auth, Edge Functions, AI support
+        automation and real-time features. All delivered through Kinetic Flow AI.
+\end{itemize}
+
+%----------------------- Other competitions & certifications -------------------
+\section{Other Competitions \& Certifications}
+\begin{itemize}
+  \item QuantStorm 2026 (IIT Delhi, IIT Guwahati, IIT Bombay): submitted an algorithmic trading bot for a two-player
+        quoting and auction game; Round 1 certificate.
+  \item IIT Bombay BodhiCoder: ranked 61 of 4,095 in the C++ program. Profit+ Trading Fundamentals, IIT
+        Guwahati: Certificate of Merit. Ventorra Finance Olympiad: 94\% in Stage 1.
+\end{itemize}
+
+%------------------------------------ Skills -----------------------------------
+\section{Skills}
+\begin{itemize}
+  \item \textbf{Mathematics:} Probability, Statistics, Linear Algebra, Calculus, Optimization, Time-Series Analysis
+  \item \textbf{Languages:} Python, C++, C, SQL, JavaScript, Rust (backtesting tools)
+  \item \textbf{ML \& AI:} PyTorch, ONNX (int8 quantisation), XGBoost, NumPy, Pandas, Matplotlib, LLMs, Ollama, OpenAI API,
+        prompt engineering
+  \item \textbf{Quant \& trading:} walk-forward and Monte Carlo backtesting, overfitting and leakage checks, turnover and risk
+        control, execution systems
+  \item \textbf{Finance:} equity research, financial statement analysis, earnings forecasting, P/E-based valuation and scenario
+        analysis
+  \item \textbf{Backend \& tools:} FastAPI, REST APIs, SQL and DBMS (Supabase / PostgreSQL), Node.js, AWS EC2, Git,
+        GitHub, Conda
+  \item \textbf{Training:} IIIT Hyderabad iHub AIML Training 2026; 20+ Google Cloud Skills Boost badges
+\end{itemize}
+
+\end{document}
