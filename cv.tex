@@ -5,13 +5,13 @@
 %-------------------------------------------------------------------------------
 \documentclass[letterpaper,10pt]{article}
 
-\usepackage[margin=0.55in]{geometry}
+\usepackage[margin=0.55in,top=0.45in,bottom=0.45in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks=true,urlcolor=blue!50!black,linkcolor=blue!50!black]{hyperref}
 \usepackage{tabularx}
 \usepackage{xcolor}
 
@@ -47,16 +47,15 @@
   \small
   \href{mailto:lnvlochanchaparala@gmail.com}{lnvlochanchaparala@gmail.com} $|$
   +91-9983355789 $|$
-  \href{https://www.linkedin.com/in/lnv-lochan-ch-7b43ab379}{\underline{LinkedIn}} $|$
-  \href{https://github.com/Lnvqntx}{\underline{GitHub}} $|$
-  \href{https://www.kineticflowai.com/}{\underline{Portfolio}}
+  \href{https://www.linkedin.com/in/lnv-lochan-ch-7b43ab379/}{\underline{LinkedIn}} $|$
+  \href{https://github.com/Lnvqntx}{\underline{GitHub}}
 \end{center}
 \vspace{-6pt}
 
 %------------------------------------ Summary ----------------------------------
 \small
 Dual-degree CSE and Data Science student and AI startup co-founder who builds and runs quantitative trading systems.
-Top 6\% (302 of 5,111) in Wunder Fund's HFT order-book prediction competition, 21st in AlphaNova Cycle 4,
+412th in Wunder Fund's HFT order-book prediction competition, 21st in AlphaNova Cycle 4,
 620th globally in IMC Prosperity, 7th of 190 in the APAC Quant Trading Hackathon, and 3rd prize in IIT Madras
 and NIT Rourkela's Pitch Me a Stock equity research competition. Founded my university's first Finance Club.
 \normalsize
@@ -69,17 +68,17 @@ and NIT Rourkela's Pitch Me a Stock equity research competition. Founded my univ
 %--------------------------- Quant research & competitions ---------------------
 \section{Quantitative Research \& Competitions}
 
-\entry{Wunder Fund Alfa Connectome: HFT Order-Book Prediction, Team Varanasi}{Ongoing: public rank 302 of 5,111}
-      {Python, PyTorch, ONNX}{}
+\entry{Wunder Fund Alfa Connectome: HFT Order-Book Prediction, Team Varanasi}{Final rank 412}
+      {Python, PyTorch, ONNX}{\href{https://github.com/Lnvqntx/Varanasi-lob-ml}{\underline{Code}}}
 \begin{itemize}
   \item Built a stateful GRU that predicts two future-price indicators row by row from a live stream of 112 limit-order-book
         features on two instruments; \metric{0.687} weighted Pearson on validation against the official baseline's 0.617.
   \item Met a 1-vCPU, $\sim$90-microsecond-per-row latency budget for 39.4M test rows: int8-quantised ONNX export (score
-        loss under 0.0001) cut inference from 203 to \metric{59 microseconds} per row, so a two-model ensemble runs in about 34
+        loss under 0.0001) cut inference from 203 to \metric{59 microseconds} per row, so the deployed two-model ensemble runs in about 36
         of the 60 minutes allowed.
   \item Treated every change as a controlled experiment: a baseline calibration submission showed the
         validation-to-leaderboard drop was shared by everyone, and seed noise (0.0013) was measured before any gain
-        was accepted. Climbed from rank 543 to \metric{302} with 6 submissions.
+        was accepted. Public rank climbed from 543 to a peak of 302 with 6 submissions; final private score 0.66582, rank \metric{412}.
 \end{itemize}
 
 \entry{Pitch Me a Stock, IIT Madras $\times$ NIT Rourkela, Team Red Devils}{Oct 2026: 3rd prize; final 10 of 626}
@@ -109,7 +108,7 @@ and NIT Rourkela's Pitch Me a Stock equity research competition. Founded my univ
 \end{itemize}
 
 \entry{AlphaNova Biweekly Competition, Season 1}{Cycle 4: rank 21 (star signal); Cycle 5 ongoing}
-      {Python, XGBoost}{}
+      {Python, XGBoost}{\href{https://github.com/Lnvqntx/Alpha_Nova_S1_C5}{\underline{Cycle 5 code}}}
 \begin{itemize}
   \item Forecast a hidden cross-sectional target on 20 assets, scored by Sharpe after a 5 bp turnover cost. Built 15
         candidate predictors, a walk-forward harness, an overfitting-gate simulator and automated leakage, determinism
@@ -146,8 +145,7 @@ and NIT Rourkela's Pitch Me a Stock equity research competition. Founded my univ
         exposure caps, and a dry-run rotation analyser for replacing weak positions.
 \end{itemize}
 
-{\footnotesize\textit{Code for the private Varanasi, AlphaNova and Prime Execution repositories is available on request
-(Varanasi after the competition ends, as its rules require).}}
+{\footnotesize\textit{Code for the private Prime Execution repository is available on request.}}
 
 %-------------------------------- Research -------------------------------------
 \section{Research \& Publications}
@@ -160,7 +158,12 @@ and NIT Rourkela's Pitch Me a Stock equity research competition. Founded my univ
 %-------------------------------- Experience -----------------------------------
 \section{Experience}
 
-\entry{Co-Founder, AI Solutions \& Business Development, Kinetic Flow AI}{Oct 2025 -- Present}{}{}
+\entry{Quant Engineering Intern, AI Quant Team, Roostoo Labs}{Nov 2026 -- Present}{Remote, part-time}{}
+\begin{itemize}
+  \item Research, engineering and analysis for an AI trading-agent platform, working with a senior engineer mentor.
+\end{itemize}
+
+\entry{Co-Founder, AI Solutions \& Business Development, \href{https://www.kineticflowai.com/}{\underline{Kinetic Flow AI}}}{Oct 2025 -- Present}{}{}
 \begin{itemize}
   \item Co-founded an AI solutions startup that delivered 4 production-grade client solutions worth over INR 2 lakh; turned
         client requirements into technical specifications and handled pricing, timelines, client communication and
@@ -184,6 +187,11 @@ and NIT Rourkela's Pitch Me a Stock equity research competition. Founded my univ
 %------------------------------ Software projects ------------------------------
 \section{Software Projects}
 \begin{itemize}
+  \item \href{https://github.com/Lnvqntx/Monte-Carlo-Stock-Sim}{\textbf{\underline{Monte Carlo Stock Simulator}}} (Python, FastAPI, Next.js, TypeScript): simulates 10,000
+        GBM price paths for any US or Indian ticker from its own Yahoo Finance history (percentile bands, probability of loss,
+        95\% VaR), with a no-look-ahead rolling backtest of band coverage, a REST API and a live Vercel web app.
+  \item \href{https://github.com/Lnvqntx/Pokemac}{\textbf{\underline{Pokemac}}} (Python, SQLite, GitHub API): Pok\'emon-themed task game and macOS desktop companion
+        with a game engine, CLI, desktop overlay, GitHub issue rewards, SQLite saves and a CI-run test suite.
   \item \textbf{DeepFake Audio Detection} (Python, PyTorch, Ollama, Node.js): PyTorch deepfake audio detector with
         GPU-accelerated inference; backend APIs and a Node.js web app with a local Ollama LLM.
   \item \textbf{GalliBite, HOMYGO, MitraCare} (Supabase, PostgreSQL, Edge Functions, WhatsApp Business): contributed to
@@ -204,14 +212,14 @@ and NIT Rourkela's Pitch Me a Stock equity research competition. Founded my univ
 \section{Skills}
 \begin{itemize}
   \item \textbf{Mathematics:} Probability, Statistics, Linear Algebra, Calculus, Optimization, Time-Series Analysis
-  \item \textbf{Languages:} Python, C++, C, SQL, JavaScript, Rust (backtesting tools)
+  \item \textbf{Languages:} Python, C++, C, SQL, JavaScript, TypeScript, Rust (backtesting tools)
   \item \textbf{ML \& AI:} PyTorch, ONNX (int8 quantisation), XGBoost, NumPy, Pandas, Matplotlib, LLMs, Ollama, OpenAI API,
         prompt engineering
   \item \textbf{Quant \& trading:} walk-forward and Monte Carlo backtesting, overfitting and leakage checks, turnover and risk
         control, execution systems
   \item \textbf{Finance:} equity research, financial statement analysis, earnings forecasting, P/E-based valuation and scenario
         analysis
-  \item \textbf{Backend \& tools:} FastAPI, REST APIs, SQL and DBMS (Supabase / PostgreSQL), Node.js, AWS EC2, Git,
+  \item \textbf{Backend \& tools:} FastAPI, REST APIs, SQL and DBMS (Supabase / PostgreSQL), Node.js, Next.js, AWS EC2, Git,
         GitHub, Conda
   \item \textbf{Training:} IIIT Hyderabad iHub AIML Training 2026; 20+ Google Cloud Skills Boost badges
 \end{itemize}
