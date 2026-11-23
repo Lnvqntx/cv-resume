@@ -14,10 +14,12 @@ This repository serves as the central location for my latest CV and professional
 
 ## Highlights
 
-- Ranked **302 out of 5,111** in Wunder Fund's HFT order-book prediction competition.
+- Finished **412th** (private score 0.66582) in Wunder Fund's HFT order-book prediction competition ([code](https://github.com/Lnvqntx/Varanasi-lob-ml)).
 - Ranked **7th out of 190** in the APAC Quant Trading Hackathon.
 - Ranked **21st** in AlphaNova Cycle 4.
 - Achieved **620th globally** in IMC Prosperity 4 after Round 4.
+- Quant Engineering Intern on the AI Quant Team at Roostoo Labs (remote, part-time).
+- Won **3rd prize** in IIT Madras and NIT Rourkela's Pitch Me a Stock equity research competition.
 - Co-authored a research manuscript on music emotion recognition, under review at ICASSP 2027.
 - Founded my university's first Finance Club.
 - Co-founded **Kinetic Flow AI**, working on AI solutions, client requirements, and software delivery.
